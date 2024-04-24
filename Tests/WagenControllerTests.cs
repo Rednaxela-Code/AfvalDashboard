@@ -17,7 +17,7 @@ namespace AfvalDashboard.Tests
         }
 
         [Fact]
-        public void WagenController_ReturnsTenWagenObjects()
+        public void WagenController_ReturnsTenWagens()
         {
             // Act
             var result = _controller.Get();
