@@ -113,3 +113,8 @@ a, .btn-link {
     width: 25%;
     background-color: #f2f2f2;
 }
+
+.odd-row-highlight-medewerkers th, .odd-row-highlight td {
+    width: 15%;
+    background-color: #f2f2f2;
+}

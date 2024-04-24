@@ -1,0 +1,55 @@
+﻿@page "/fetchmedewerkers"
+@using AfvalDashboard.Shared
+@inject HttpClient Http
+
+<PageTitle>Medewerkeroverzicht</PageTitle>
+
+<h1>Medewerkeroverzicht</h1>
+
+<p>Hier een overzicht van alle medewerkers.</p>
+
+@if (medewerkers == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="odd-row-highlight-medewerkers">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Voornaam</th>
+                <th>Achternaam</th>
+                <th>Geboorte Datum</th>
+                <th>Straat</th>
+                <th>Huisnummer</th>
+                <th>Postcode</th>
+                <th>Woonplaats</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var werker in medewerkers)
+            {
+                <tr>
+                    <td>@werker.Id</td>
+                    <td>@werker.Voornaam</td>
+                    <td>@werker.Achternaam</td>
+                    <td>@werker.GeboorteDatum</td>
+                    <td>@werker.Adres.Straat</td>
+                    <td>@werker.Adres.Huisnummer</td>
+                    <td>@werker.Adres.Postcode</td>
+                    <td>@werker.Adres.Woonplaats</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Medewerker[]? medewerkers;
+
+    protected override async Task OnInitializedAsync()
+    {
+        medewerkers = await Http.GetFromJsonAsync<Medewerker[]>("Medewerker");
+    }
+}
