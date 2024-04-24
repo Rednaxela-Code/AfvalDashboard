@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfvalDashboard.Client", "Af
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfvalDashboard.Shared", "AfvalDashboard\Shared\AfvalDashboard.Shared.csproj", "{BCE969E9-1AB6-4BC7-90F0-4EA665D7014A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AfvalDashboard.Tests", "Tests\AfvalDashboard.Tests.csproj", "{BBE13704-9E0A-4016-8334-3E8D10614028}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{BCE969E9-1AB6-4BC7-90F0-4EA665D7014A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BCE969E9-1AB6-4BC7-90F0-4EA665D7014A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BCE969E9-1AB6-4BC7-90F0-4EA665D7014A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE13704-9E0A-4016-8334-3E8D10614028}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE13704-9E0A-4016-8334-3E8D10614028}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE13704-9E0A-4016-8334-3E8D10614028}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE13704-9E0A-4016-8334-3E8D10614028}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
