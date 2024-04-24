@@ -31,8 +31,8 @@ namespace AfvalDashboard.Server.Controllers
                 new Adres(2, "Lijnstraat", "3", "1243AB", "Amsterdorp")),
                 new Medewerker(3, "Mirjam", "Touw", new DateOnly(1948, 12, 03),
                 new Adres(3, "Bloemhof", "4", "7294TE", "Eindhoven")),
-                new Medewerker(3, "Tony", "Blontana", new DateOnly(1952, 04, 03),
-                new Adres(3, "DeWittStraat", "87", "5671NU", "Groningen")),
+                new Medewerker(4, "Tony", "Blontana", new DateOnly(1952, 04, 03),
+                new Adres(4, "DeWittStraat", "87", "5671NU", "Groningen")),
             };
         }
     }

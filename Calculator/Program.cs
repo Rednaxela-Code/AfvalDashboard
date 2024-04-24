@@ -14,7 +14,7 @@ var resultThree = AverageLinq(list);
 Console.WriteLine(resultThree);
 
 // Original method from assignment. My problems with tis are, Avarage is not the right spelling, why use list name "ints" when list is perfectly readable in such a small function. Why return Null in the exception? I do not get why this would be good ??
-float? Avarage(List<int> ints)
+static float? Avarage(List<int> ints)
 {
     try
     {
@@ -32,7 +32,7 @@ float? Avarage(List<int> ints)
 }
 
 // My own refactor for "Readability", with a nullcheck so trycatch block should not be needed as far as i know.
-float? Average(List<int> list)
+static float? Average(List<int> list)
 {
     if (list == null)
     {
@@ -51,7 +51,7 @@ float? Average(List<int> list)
 }
 
 // Refactor with some internet, changed returntype to Double, the internet tells me it is more accurate. Dunno , LINQ should be faster? Readability is still great for such a small function.
-double? AverageLinq(List<int> ints)
+static double? AverageLinq(List<int> ints)
 {
     if (ints == null || ints.Count == 0)
     {
@@ -63,13 +63,13 @@ double? AverageLinq(List<int> ints)
     }
 }
 
-// This one from the assignment does not work, as far as i know it should be the class that is abstract. Also i would change the Class name to DataEntity, i think a class named Identity will give big problems when you want to scaffolt EFCORE.Identity
+// This one from the assignment does not work, as far as i know it should be the class that is abstract. When you make the property abstract you NEED to initialize the property in the child class.Also i would change the Class name to DataEntity, i think a class named Identity will give big problems when you want to scaffolt EFCORE.Identity
 
 //public class Identity
 //{
 //    public abstract int Id { get; set; }
 //}
-public abstract class DataEntity()
-{
-    public int Id { get; set; }
-}
+//public abstract class DataEntity()
+//{
+//    public int Id { get; set; }
+//}

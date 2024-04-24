@@ -14,7 +14,7 @@
 }
 else
 {
-    <table class="odd-row-highlight-wagens">
+    <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
@@ -27,7 +27,7 @@ else
         <tbody>
             @foreach (var wagen in wagens)
             {
-                <tr>
+                <tr class="@(wagen.Id % 2 == 0 ? "even-row" : "odd-row")">
                     <td>@wagen.Id</td>
                     <td>@wagen.Naam</td>
                     <td>@wagen.Achterlader</td>
