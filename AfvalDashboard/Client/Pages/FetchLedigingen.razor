@@ -8,6 +8,11 @@
 
 <p>Hier een overzicht van alle ledigingen.</p>
 
+<div class="text-center">
+    <p>Filter op Wagen Nummer:</p>
+    <input type="text" @bind="filterInput" />
+    <button @onclick="ApplyFilter">Ga</button>
+</div>
 @if (ledigingen == null)
 {
     <p><em>Loading...</em></p>
@@ -25,7 +30,7 @@ else
             </tr>
         </thead>
         <tbody>
-            @foreach (var lediging in ledigingen)
+            @foreach (var lediging in filteredLedigingen)
             {
                 <tr>
                     <td>@lediging.Id</td>
@@ -41,9 +46,26 @@ else
 
 @code {
     private Lediging[]? ledigingen;
+    private Lediging[]? filteredLedigingen;
+    private string? filterInput;
 
     protected override async Task OnInitializedAsync()
     {
         ledigingen = await Http.GetFromJsonAsync<Lediging[]>("Ledigingen");
+        filteredLedigingen = ledigingen;
+    }
+
+    private void ApplyFilter()
+    {
+        if (string.IsNullOrEmpty(filterInput))
+        {
+            filteredLedigingen = ledigingen;
+        }
+        else
+        {
+            filteredLedigingen = ledigingen?
+            .Where(l => l.WagenNummer.Contains(filterInput, StringComparison.OrdinalIgnoreCase))
+            .ToArray();
+        }
     }
 }
