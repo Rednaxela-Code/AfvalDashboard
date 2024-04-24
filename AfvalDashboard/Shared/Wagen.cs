@@ -15,5 +15,50 @@
             Zijlader = zijlader;
             Merk = merk;
         }
+
+        public Wagen Find(List<Wagen>? List, int Id)
+        {
+            Wagen r = null;
+            foreach (var i in List)
+            {
+                if (i.Id == Id)
+                    r = i;
+            }
+            return r;
+        }
+
+        public Wagen FindWagenById(List<Wagen>? wagenList, int id)
+        {
+            if (!wagenList.Any())
+            {
+                return null;
+            }
+
+            foreach (var wagen in wagenList)
+            {
+                if (wagen.Id == id)
+                {
+                    return wagen;
+                }
+            }
+            return null;
+        }
+
+        public Wagen FindWagenByIdLinq(List<Wagen>? wagenList, int id)
+        {
+            if (!wagenList.Any())
+            {
+                return null;
+            }
+            else
+            {
+                var wagen = wagenList.Where(w => w.Id.Equals(id))?.FirstOrDefault();
+                if (wagen != null)
+                {
+                    return wagen;
+                }
+            }
+            return null;
+        }
     }
 }
