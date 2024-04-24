@@ -1,0 +1,47 @@
+﻿@page "/fetchledigingen"
+@using AfvalDashboard.Shared
+@inject HttpClient Http
+
+<PageTitle>Ledigingenoverzicht</PageTitle>
+
+<h1>Ledigingenoverzicht</h1>
+
+<p>Hier een overzicht van alle ledigingen.</p>
+
+@if (ledigingen == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tijd</th>
+                <th>Gewicht</th>
+                <th>Verboden Lading</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var lediging in ledigingen)
+            {
+                <tr>
+                    <td>@lediging.Id</td>
+                    <td>@lediging.Tijd</td>
+                    <td>@lediging.Gewicht</td>
+                    <td>@lediging.VerbodenLading</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Lediging[]? ledigingen;
+
+    protected override async Task OnInitializedAsync()
+    {
+        ledigingen = await Http.GetFromJsonAsync<Lediging[]>("Ledigingen");
+    }
+}
