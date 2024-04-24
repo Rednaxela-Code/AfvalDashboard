@@ -1,0 +1,49 @@
+﻿@page "/fetchwagens"
+@using AfvalDashboard.Shared
+@inject HttpClient Http
+
+<PageTitle>Wagenoverzicht</PageTitle>
+
+<h1>Wagenoverzicht</h1>
+
+<p>Hier een overzicht van alle wagens.</p>
+
+@if (wagens == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Naam</th>
+                <th>Achterlader</th>
+                <th>Zijlader</th>
+                <th>Merk</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var wagen in wagens)
+            {
+                <tr>
+                    <td>@wagen.Id</td>
+                    <td>@wagen.Naam</td>
+                    <td>@wagen.Achterlader</td>
+                    <td>@wagen.Zijlader</td>
+                    <td>@wagen.Merk</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+    private Wagen[]? wagens;
+
+    protected override async Task OnInitializedAsync()
+    {
+        wagens = await Http.GetFromJsonAsync<Wagen[]>("Wagen");
+    }
+}
