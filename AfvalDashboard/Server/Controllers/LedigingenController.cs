@@ -18,6 +18,11 @@ namespace AfvalDashboard.Server.Controllers
         [HttpGet]
         public IEnumerable<Lediging> Get()
         {
+            return MaakHonderdLedigingen();
+        }
+
+        private static IEnumerable<Lediging> MaakHonderdLedigingen()
+        {
             var random = new Random();
             var list = new List<Lediging>();
 

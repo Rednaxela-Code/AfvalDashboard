@@ -18,7 +18,12 @@ namespace AfvalDashboard.Server.Controllers
         [HttpGet]
         public IEnumerable<Wagen> Get()
         {
-            var list = new List<Wagen>()
+            return MaakTienWagens();
+        }
+
+        private static IEnumerable<Wagen> MaakTienWagens()
+        {
+            return new List<Wagen>()
             {
                 new Wagen(1, "Wagen #1", true, false, "DAF"),
                 new Wagen(2, "Wagen #2", false,true, "Scania"),
@@ -31,7 +36,6 @@ namespace AfvalDashboard.Server.Controllers
                 new Wagen(9, "Wagen #9", true, false, "Renault"),
                 new Wagen(10,"Wagen #10", false, true, "Volvo")
             };
-            return list;
         }
     }
 }
