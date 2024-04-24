@@ -8,9 +8,11 @@
 
 <p>Hier een overzicht van alle ledigingen.</p>
 
-<input type="text" @bind="filterInput"/>
-<button @onclick="ApplyFilter">Filter</button>
-
+<div class="text-center">
+    <p>Filter op Wagen Nummer:</p>
+    <input type="text" @bind="filterInput" />
+    <button @onclick="ApplyFilter">Ga</button>
+</div>
 @if (ledigingen == null)
 {
     <p><em>Loading...</em></p>
