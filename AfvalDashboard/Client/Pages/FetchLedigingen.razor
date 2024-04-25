@@ -9,9 +9,9 @@
 <p>Hier een overzicht van alle ledigingen.</p>
 
 <div class="text-center">
-    <p>Filter op Wagen Nummer:</p>
+    <p><strong>Filter op Wagen Nummer:</strong></p>
     <input type="text" @bind="filterInput" />
-    <button @onclick="ApplyFilter">Ga</button>
+    <button class="btn btn-primary" @onclick="ApplyFilter">Ga</button>
 </div>
 @if (ledigingen == null)
 {
